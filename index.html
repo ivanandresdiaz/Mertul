@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mertul</title>
+    <link rel="icon" type="image/png" href="favicon2.png">
+    <link rel="stylesheet" href="mertul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <figure>
+            <img class="mertul-imagen" src="mertul.png"/>
+            </figure>
+        </section>
+        <section class="busqueda">
+            <input type="text" placeholder="Buscar">
+            <a class="icon-arrow_forward buscarmas"></a>
+        </section>
+        <section class="ubicacion">
+            <a class="bandera-municipio"> </a>
+            <select class="lista-desplegable" name="municipio">
+                <option value="1">Fortul</option> 
+                <option value="2">Saravena</option> 
+                <option value="3">Tame</option>
+            </select>
+        </section>
+        <section class="direccion">
+            <section>
+                <p>Dirección</p>
+            </section>
+            <section>
+                <i class="icon-my_location"></i>
+            </section>
+        </section>
+        <section class="iniciar-sesion">
+            <p>Iniciar sesión</p>
+            <i class="icon-user"></i>
+        </section>
+        <section>mis pedidos</section>
+        <section class="carrito">
+            <p>
+                Total
+            </p>
+            <i class="icon-cart"></i>
+        </section>
+    </header>
+    <section class="contenido"> 
+        <section class="navegacion">
+            <section class="departamentos"><p>Departamentos</p></section>
+            <section class="navegacion-especifica">
+                <div class="botones-de-navegacion"><img src="super-ofertas.png"><a href="#super-ofertas">Super Ofertas</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="increibles.png"><a href="#al-mejor-precio">Al mejor precio</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="lacteos.png"><a href="#lacteos-y-huevos">lacteos y huevos</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="despensa.png"><a href="#despensas">Despensas</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="panaderia.png"><a href="#panaderia-y-arepas">Panderia y arepas</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="baloto.png"><a href="#baloto">Baloto</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="ropa.png"><a href="#cuidado-de-la-ropa">Cuidado de la ropa</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="aseo.png"><a href="#aseo-del-hogar">Aseo del hogar</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="personal.png"><a href="#aseo-personal">Aseo Personal</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="bebes.png"><a href="#bebes">Bebes</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+                <div class="botones-de-navegacion"><img src="cafe.png"><a href="#cafe-y-chocolate">Cafe y chocolate</a><a class="icon-keyboard_arrow_down" href="noterminado.html"></a></div>
+            </section>
+        </section>
+        <section class=" oferta-productos">
+            <section>
+                <section class="fila1-header">
+                    <p>¡Destacados de la semana!</p>
+                    <a href="noterminado.html">ver todos</a>
+                </section>
+                <section>
+                    <div class="fila1-imagenes">
+                        <img  src="aviso1.jpg.png" />
+                        <img src="aviso2.jpg.png" />
+                        <img  src="aviso3.jpg.png"/>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section class="fila2-header" id="super-ofertas">
+                    <p>Super ofertas</p>
+                    <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+                </section>
+                <section class="comerciables">
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/parmalac1.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                        <div id="smart-button-container">
+                            <div style="text-align: center;">
+                              <div id="paypal-button-container"></div>
+                            </div>
+                          </div>
+                        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+                        <script>
+                          function initPayPalButton() {
+                            paypal.Buttons({
+                              style: {
+                                shape: 'rect',
+                                color: 'white',
+                                layout: 'vertical',
+                                label: 'paypal',
+                                
+                              },
+                      
+                              createOrder: function(data, actions) {
+                                return actions.order.create({
+                                  purchase_units: [{"description":"Caja de Gatos","amount":{"currency_code":"USD","value":1}}]
+                                });
+                              },
+                      
+                              onApprove: function(data, actions) {
+                                return actions.order.capture().then(function(details) {
+                                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                });
+                              },
+                      
+                              onError: function(err) {
+                                console.log(err);
+                              }
+                            }).render('#paypal-button-container');
+                          }
+                          initPayPalButton();
+                        </script>
+                    </div>
+                    <div class="productos-comerciables">
+                        <img  src="./super-ofertas/parmalac2.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/aceite-diana.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/cereal.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                </section>
+            </section>
+            <section><!--3 fila-->
+                <section id="al-mejor-precio" class="fila2-header">
+                    <p>Increíbles al mejor precio</p>
+                    <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+                </section>
+                <section class="comerciables">
+                    <div class="productos-comerciables"> 
+                        <img  src="./increible/deslactosada.png" />
+                        <h6>Leche deslactosada maestra 6 unidades</h6>
+                        <p>Precio 12.900</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables">
+                        <img  src="./increible/deslactosada2.png" />
+                        <h6>Leche entera maestra por 6 unidades</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./increible/detergente.png" />
+                        <h6>Detergente Ciclus 4Lt</h6>
+                        <p>Precio 10.650</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./increible/cloro.png" />
+                        <h6>Blanqueador desinfectante triple E</h6>
+                        <p>Precio 1.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <!--4fila-->
+                <section id="lacteos-y-huevos" class="fila2-header">
+                    <p>Lacteos y Huevos</p>
+                    <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+                </section>
+                <section class="comerciables">
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/parmalac1.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables">
+                        <img  src="./super-ofertas/parmalac2.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/aceite-diana.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                    <div class="productos-comerciables"> 
+                        <img  src="./super-ofertas/cereal.png" />
+                        <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                        <p>Precio 11.550</p>
+                        <button type="submit">Agregar</button>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <!--5fila-->
+                <section id="despensas"class="fila2-header">
+                <p>Despensas</p>
+                <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+            </section>
+            <section class="comerciables">
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/parmalac1.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables">
+                    <img  src="./super-ofertas/parmalac2.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/aceite-diana.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/cereal.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+            </section>
+            <section>
+                <!--6fila-->
+                <section id="panaderia-y-arepas"class="fila2-header">
+                <p>Panaderia y arepas</p>
+                <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+            </section>
+            <section class="comerciables">
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/parmalac1.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables">
+                    <img  src="./super-ofertas/parmalac2.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/aceite-diana.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/cereal.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+            </section>
+            <section>
+                <!--7fila-->
+                <section id="baloto"class="fila2-header">
+                <p>Baloto</p>
+                <a href="noterminado.html">ver mas<i class="icon-keyboard_arrow_right"></i></a>
+            </section>
+            <section class="comerciables">
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/parmalac1.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables">
+                    <img  src="./super-ofertas/parmalac2.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/aceite-diana.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+                <div class="productos-comerciables"> 
+                    <img  src="./super-ofertas/cereal.png" />
+                    <h6>Combo six pack leche deslactosada Parmalact X12</h6>
+                    <p>Precio 11.550</p>
+                    <button type="submit">Agregar</button>
+                </div>
+            </section>
+        </section>
+    </section>
+    <footer><p>Diseñado por Ivan Andres Diaz Lopez</p></footer>
+    </body>
+</html>
